@@ -4,6 +4,38 @@
     box-sizing: border-box;     /*box sizing: border-box is used to add padding and border in both width and heghts.*/ 
 
 }
+
+.col-4{
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 97%;
+    height: 82%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.col-4:hover .overlay {
+    opacity: 1;
+}
+
+.custom-btn{
+    background-color: #ff5722 !important;
+    color: #fff !important;
+    padding: 10px 20px !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    transition: background-color 0.8s ease !important;
+}
+
 body{
     font-family: 'Poppins', sans-serif;
 }

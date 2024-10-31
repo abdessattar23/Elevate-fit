@@ -62,3 +62,14 @@ range.addEventListener('input', () => {
     price.textContent = `$${range.value}`;
     filterProducts();
 });
+
+
+const addbtn = document.querySelectorAll('#add-btn');
+ addbtn.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const col4Parent = btn.parentElement.closest('.col-4');
+        const html = col4Parent.outerHTML;
+        localStorage.setItem("product-to-show", html);
+        window.location.href = "product-detail.html";
+    });
+ })

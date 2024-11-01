@@ -130,7 +130,7 @@ p{
 }
 /*featured products*/
 /*small container edit whole section consist of rows*/
-.small container{
+.small-container{
     max-width: 1080px;
     margin:auto;/*make images in center*/
     padding-left: 25px;
@@ -453,7 +453,7 @@ td input{
 }
 td a{
     color: #ff523b;
-    ffont-size: 12px;
+    font-size: 12px;
 }
 td img{
     width: 80px;

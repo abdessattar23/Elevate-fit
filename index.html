@@ -477,7 +477,23 @@
 
     <!-----------------JS----------------------->
 
+<script>
+    const old = JSON.parse(localStorage.getItem("cart")) || [];
+var cart = old;
+function calculateprice() {
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    let totalPrice = 0;
+    cartItems.forEach(item => {
+        totalPrice += item[1];
+    });
+    return totalPrice;
+}
+document.querySelector(".menu-bar li").textContent = `$${calculateprice()}`;
+document.querySelector(".menu-bar li i").addEventListener("click", () => {
+    window.location.href = './cart.html';
+})
 
+</script>
 </body>
 
 </html>

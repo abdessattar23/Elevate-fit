@@ -38,4 +38,49 @@ if(selectedItem){
     imgs.forEach(e => {
         e.src = img;
     });
+    const newval = JSON.parse(localStorage.getItem("cart")) || [];
+    newval.forEach((item, i) => {
+        if(item[0] == title){
+            document.querySelector("#quantity").value = item[3];
+            document.querySelector("#size").value = item[4];
+        }
+    });
 }
+const old = JSON.parse(localStorage.getItem("cart")) || [];
+var cart = old;
+function calculateprice() {
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    let totalPrice = 0;
+    cartItems.forEach(item => {
+        totalPrice += item[1];
+    });
+    return totalPrice;
+}
+document.querySelector(".menu-bar li").textContent = `$${calculateprice()}`;
+document.querySelector(".menu-bar li i").addEventListener("click", () => {
+    window.location.href = './cart.html';
+})
+
+const quantity = document.querySelector("#quantity");
+const size = document.querySelector("#size");
+var title = document.querySelector("#product h1").textContent;
+quantity.addEventListener("change", () => {
+    const newval = JSON.parse(localStorage.getItem("cart")) || [];
+    newval.forEach((item, i) => {
+        if(item[0] == title){
+            newval[i][3] = quantity.value;
+            localStorage.setItem("cart", JSON.stringify(newval));
+        }
+    });
+    document.querySelector(".menu-bar li").textContent = `$${calculateprice()}`;
+});
+size.addEventListener("change", () => {
+    const newval = JSON.parse(localStorage.getItem("cart")) || [];
+    newval.forEach((item, i) => {
+        if(item[0] == title){
+            newval[i][4] = size.value;
+            localStorage.setItem("cart", JSON.stringify(newval));
+        }
+    });
+    document.querySelector(".menu-bar li").textContent = `$${calculateprice()}`;
+});

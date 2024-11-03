@@ -102,3 +102,7 @@ function getitems() {
     
     document.querySelector(".tot").textContent = `$${total}`;
 }
+document.querySelector(".fa-bars").addEventListener("click", () => {
+    const overmenu = document.querySelector(".overmenu");
+    overmenu.classList.toggle("shown");
+});

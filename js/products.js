@@ -83,3 +83,7 @@ document.querySelector(".fa-shopping-cart").addEventListener("click", () => {
 document.querySelector(".fa-money-bill").addEventListener("click", () => {
     window.location.href = './checkout.html';
 })
+document.querySelector(".fa-bars").addEventListener("click", () => {
+    const overmenu = document.querySelector(".overmenu");
+    overmenu.classList.toggle("shown");
+});

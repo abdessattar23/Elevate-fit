@@ -108,20 +108,8 @@ document.querySelector(".btn").addEventListener('click', (e) => {
         }
     });
 
-
-
-    // const col4Parent = btn.parentElement.closest('.col-4');
-    // const price = parseInt(col4Parent.querySelector("#items-price").textContent.substring(1), 10)
-    // const title = col4Parent.querySelector("h4").textContent;
-    // const img = col4Parent.querySelector("img").src;
-    // const quantity = 1;
-    // const size = "Medium";
-    // const existingItem = cart.find(item => item[0] === title);
-    // if (existingItem) {
-    //     existingItem[3] += 1;
-    // } else {
-    //     cart.push([title, price, img, quantity, size]);
-    // }
-    // localStorage.setItem("cart", JSON.stringify(cart));
-    // document.querySelector(".menu-bar li").textContent = `$${calculateprice()}`;
+});
+document.querySelector(".fa-bars").addEventListener("click", () => {
+    const overmenu = document.querySelector(".overmenu");
+    overmenu.classList.toggle("shown");
 });

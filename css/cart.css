@@ -22,7 +22,7 @@
   }
   
   
-  header{
+  /* header{
     background: url(../images/image11.png);
     background-size: cover;
     background-attachment: fixed;
@@ -31,20 +31,9 @@
     position: relative;
   
   }
+   */
   
-  
-  header:before{
-    content:"";
-    width:100%;
-    height:100%;
-    position:absolute;
-    top:0;
-    left:0;
-    z-index:0;
-    background:rgba(211, 134, 134, 0.3);
-  }
-  
-  
+ 
   header nav{
     background:rgb(0 0 0 / 30%);
     color:var(--white);
@@ -284,7 +273,7 @@
     flex-direction: column;
 
   }
-  .overmenu.menu-bar-side li{
+  .menu-bar-side li{
       text-align: center;
       border-bottom: 1px solid #444;
       padding: 10px;
@@ -294,7 +283,7 @@
       list-style: none;
       cursor: pointer;
   }
-  .overmenu.menu-bar{
+  .wrapper.menu-bar{
     position: fixed;
     bottom: 0;
   }

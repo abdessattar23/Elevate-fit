@@ -77,6 +77,9 @@ title.forEach(t => {
         window.location.href = "product-detail.html";
     });
 });
-document.querySelector(".menu-bar li i").addEventListener("click", () => {
+document.querySelector(".fa-shopping-cart").addEventListener("click", () => {
     window.location.href = './cart.html';
+})
+document.querySelector(".fa-money-bill").addEventListener("click", () => {
+    window.location.href = './checkout.html';
 })

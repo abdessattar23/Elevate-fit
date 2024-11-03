@@ -15,8 +15,11 @@ document.querySelector(".menu-bar li i").addEventListener("click", () => {
 })
 
 document.querySelector(".menu-bar li").textContent = `$${calculateprice()}`;
-document.querySelector(".menu-bar li i").addEventListener("click", () => {
+document.querySelector(".fa-shopping-cart").addEventListener("click", () => {
     window.location.href = './cart.html';
+})
+document.querySelector(".fa-money-bill").addEventListener("click", () => {
+    window.location.href = './checkout.html';
 })
 old.forEach(item => {
     var product = document.createElement('tr');
@@ -77,3 +80,8 @@ function remove(element){
     document.querySelector(".Tva").textContent = calculateprice();
     document.querySelector(".totaleWithTva").textContent = calculateprice();
 }
+
+document.querySelector(".fa-bars").addEventListener("click", () => {
+    const overmenu = document.querySelector(".overmenu");
+    overmenu.classList.toggle("shown");
+});

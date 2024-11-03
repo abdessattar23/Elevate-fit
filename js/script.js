@@ -57,10 +57,12 @@ function calculateprice() {
     return totalPrice;
 }
 document.querySelector(".menu-bar li").textContent = `$${calculateprice()}`;
-document.querySelector(".menu-bar li i").addEventListener("click", () => {
+document.querySelector(".fa-shopping-cart").addEventListener("click", () => {
     window.location.href = './cart.html';
 })
-
+document.querySelector(".fa-money-bill").addEventListener("click", () => {
+    window.location.href = './checkout.html';
+})
 const quantity = document.querySelector("#quantity");
 const size = document.querySelector("#size");
 var title = document.querySelector("#product h1").textContent;
@@ -83,4 +85,43 @@ size.addEventListener("change", () => {
         }
     });
     document.querySelector(".menu-bar li").textContent = `$${calculateprice()}`;
+});
+
+document.querySelector(".btn").addEventListener('click', (e) => {
+    e.preventDefault();
+    const newval = JSON.parse(localStorage.getItem("cart")) || [];
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(selectedItem, 'text/html');
+    const title = doc.querySelector('h4').textContent;
+    const price = parseInt(doc.querySelector("#items-price").textContent.substring(1), 10);
+    const img = doc.querySelector("#pr-img").src;
+    const size2 = size.value;
+    const quantity2 = quantity.value;
+    newval.forEach((item, i) => {
+        if(item[0] == title){
+            newval[i][4] = size2;
+            newval[i][3] = quantity2;
+            localStorage.setItem("cart", JSON.stringify(newval));
+        }else{
+            newval.push([title, price, img, quantity2, size2]);
+            localStorage.setItem("cart", JSON.stringify(newval));
+        }
+    });
+
+
+
+    // const col4Parent = btn.parentElement.closest('.col-4');
+    // const price = parseInt(col4Parent.querySelector("#items-price").textContent.substring(1), 10)
+    // const title = col4Parent.querySelector("h4").textContent;
+    // const img = col4Parent.querySelector("img").src;
+    // const quantity = 1;
+    // const size = "Medium";
+    // const existingItem = cart.find(item => item[0] === title);
+    // if (existingItem) {
+    //     existingItem[3] += 1;
+    // } else {
+    //     cart.push([title, price, img, quantity, size]);
+    // }
+    // localStorage.setItem("cart", JSON.stringify(cart));
+    // document.querySelector(".menu-bar li").textContent = `$${calculateprice()}`;
 });

@@ -7,8 +7,6 @@ const addbtn = document.querySelectorAll('#add-btn');
 const title = document.querySelectorAll(".col-4 h4");
 const old = JSON.parse(localStorage.getItem("cart")) || [];
 var cart = old;
-var dd = [1,2];
-dd.fin
 function filterProducts() {
     const selectedCategory = select.value;
     const maxPrice = parseInt(range.value, 10);
@@ -86,4 +84,27 @@ document.querySelector(".fa-money-bill").addEventListener("click", () => {
 document.querySelector(".fa-bars").addEventListener("click", () => {
     const overmenu = document.querySelector(".overmenu");
     overmenu.classList.toggle("shown");
+});
+
+document.querySelectorAll(".add-wish").forEach(btn => {
+    btn.addEventListener("click", () => {
+    btn.classList.toggle("fas");
+    var wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    var col4Parent = btn.closest('.col-4');
+    const title = col4Parent.querySelector("h4").textContent;
+    const img = col4Parent.querySelector("img").src;
+    const price = parseInt(col4Parent.querySelector("#items-price").textContent.substring(1), 10);
+    wishlist.forEach((item, i) => {
+        if(item[0] == title){
+            if (wishlist.length === 1) {
+                wishlist.pop();
+            } else {
+                wishlist.splice(i, 1);
+            }
+        }
+    });
+    wishlist.push([title, img, price]);
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+});
+
 });
